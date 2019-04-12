@@ -21,4 +21,14 @@ public class ColdMealsTest {
 
         Assert.assertEquals(0, count);
     }
+
+    @Test
+    public void participantCheckInAfter9PM() {
+        List<CheckIn> checkInList = new ArrayList<CheckIn>();
+        checkInList.add(new CheckIn((new Date(2019, 4, 11, 22, 0, 0))));
+
+        int count = CheckInManager.countColdMeals(checkInList);
+
+        Assert.assertEquals(1, count);
+    }
 }

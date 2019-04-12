@@ -7,4 +7,8 @@ class CheckIn {
     CheckIn(Date checkInDate) {
         this.checkInDate = checkInDate;
     }
+
+    public Date getCheckInDate() {
+        return this.checkInDate;
+    }
 }
