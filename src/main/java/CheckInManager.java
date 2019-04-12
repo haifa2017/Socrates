@@ -8,6 +8,12 @@ class CheckInManager {
         Date checkInDate = checkIn.getCheckInDate();
 
         Date limitTime = new Date(2019, 4, 11, 21, 0, 0);
+        Date tomorrow = new Date(2019, 4, 12, 0, 0, 0);
+
+        if (checkInDate.equals(tomorrow) || checkInDate.after(tomorrow)) {
+            return 0;
+        }
+
         if (checkInDate.equals(limitTime) || checkInDate.after(limitTime)) {
             return 1;
         }
