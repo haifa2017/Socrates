@@ -53,4 +53,17 @@ public class ColdMealsTest {
 
         assertEquals(0, count);
     }
+
+    @Test
+    public void manyParticipantsCheckInAtDifferentTime() {
+        List<CheckIn> checkInList = new ArrayList<CheckIn>();
+        checkInList.add(new CheckIn(new Date(2019, 4, 11, 9, 0, 0)));
+        checkInList.add(new CheckIn(new Date(2019, 4, 11, 21, 0, 0)));
+        checkInList.add(new CheckIn(new Date(2019, 4, 11, 21, 10, 0)));
+        checkInList.add(new CheckIn(new Date(2019, 4, 12, 0, 0, 0)));
+        checkInList.add(new CheckIn(new Date(2019, 4, 11, 13, 0, 0)));
+
+        int count = CheckInManager.countColdMeals(checkInList);
+        assertEquals(2, count);
+    }
 }
