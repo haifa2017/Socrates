@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 public class ColdMealsTest {
 
     @Test
-    public void test(){
+    public void test() {
         Assert.assertTrue(true);
     }
 
@@ -19,7 +21,7 @@ public class ColdMealsTest {
 
         int count = CheckInManager.countColdMeals(checkInList);
 
-        Assert.assertEquals(0, count);
+        assertEquals(0, count);
     }
 
     @Test
@@ -29,7 +31,7 @@ public class ColdMealsTest {
 
         int count = CheckInManager.countColdMeals(checkInList);
 
-        Assert.assertEquals(1, count);
+        assertEquals(1, count);
     }
 
     @Test
@@ -39,14 +41,16 @@ public class ColdMealsTest {
 
         int count = CheckInManager.countColdMeals(checkInList);
 
-        Assert.assertEquals(1, count);
+        assertEquals(1, count);
     }
 
     @Test
     public void participantCheckInAtMidnight() {
         List<CheckIn> checkInList = new ArrayList<CheckIn>();
         checkInList.add(new CheckIn(new Date(2019, 4, 12, 0, 0, 0)));
+
         int count = CheckInManager.countColdMeals(checkInList);
-        Assert.assertEquals(0, count);
+
+        assertEquals(0, count);
     }
 }
