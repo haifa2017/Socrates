@@ -4,7 +4,7 @@ class CheckIn {
 
     private final Date checkInDate;
 
-    public CheckIn(Date checkInDate) {
+    CheckIn(Date checkInDate) {
         this.checkInDate = checkInDate;
     }
 }
