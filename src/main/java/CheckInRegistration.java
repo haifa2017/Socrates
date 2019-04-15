@@ -15,7 +15,7 @@ class CheckInRegistration {
     int countColdMeals() {
         LocalDateTime tomorrow = this.limitTime.plus(1, ChronoUnit.DAYS).truncatedTo(ChronoUnit.DAYS);
         long coldMealsCount = this.checkInList.stream().filter(
-                checkIn -> checkIn.isEligibleToColdMeal(this.limitTime, tomorrow))
+                checkIn -> checkIn.isBetween(this.limitTime, tomorrow))
                 .count();
 
         return (int) coldMealsCount;
