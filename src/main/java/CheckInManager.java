@@ -21,5 +21,4 @@ class CheckInManager {
 
         return (int) coldMealsCount;
     }
-
 }
