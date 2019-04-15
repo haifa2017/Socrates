@@ -1,13 +1,22 @@
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 class CheckInManager {
+    private LocalDateTime limitTime;
 
-    static int countColdMeals(List<CheckIn> checkInList) {
-        Date limitTime = new Date(2019, 4, 11, 21, 0, 0);
-        Date tomorrow = new Date(2019, 4, 12, 0, 0, 0);
+    private CheckInManager(LocalDateTime limitTime) {
+        this.limitTime = limitTime;
+    }
+
+    static CheckInManager createManagerWithDate(LocalDateTime limitTime) {
+        return new CheckInManager(limitTime);
+    }
+
+    int countColdMeals(List<CheckIn> checkInList) {
+        LocalDateTime tomorrow = this.limitTime.plus(1, ChronoUnit.DAYS).truncatedTo(ChronoUnit.DAYS);
         long coldMealsCount = checkInList.stream().filter(
-                checkIn -> (checkIn.getCheckInDate().equals(limitTime) || checkIn.getCheckInDate().after(limitTime)) && checkIn.getCheckInDate().before(tomorrow))
+                checkIn -> (checkIn.getCheckInDate().equals(this.limitTime) || checkIn.getCheckInDate().isAfter(this.limitTime)) && checkIn.getCheckInDate().isBefore(tomorrow))
                 .count();
 
         return (int) coldMealsCount;

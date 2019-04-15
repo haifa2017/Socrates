@@ -1,15 +1,15 @@
-import java.util.Date;
+import java.time.LocalDateTime;
 
 class CheckIn {
 
-    private final Date checkInDate;
+    private final LocalDateTime checkInDate;
 
-    CheckIn(Date checkInDate) {
+    CheckIn(LocalDateTime checkInDate) {
 
         this.checkInDate = checkInDate;
     }
 
-    public Date getCheckInDate() {
+    public LocalDateTime getCheckInDate() {
         return this.checkInDate;
     }
 }
