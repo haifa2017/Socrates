@@ -8,56 +8,56 @@ public class ColdMealsTest {
 
     @Test
     public void participantCheckInBefore9PM() {
-        CheckIns registration = new CheckIns();
-        registration.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 16, 0, 0)));
+        CheckIns checkIns = new CheckIns();
+        checkIns.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 16, 0, 0)));
 
-        int count = registration.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
+        int count = checkIns.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
 
         assertEquals(0, count);
     }
 
     @Test
     public void participantCheckInAfter9PM() {
-        CheckIns registration = new CheckIns();
-        registration.addCheckIn(new CheckIn((LocalDateTime.of(2019, 4, 11, 22, 0, 0))));
+        CheckIns checkIns = new CheckIns();
+        checkIns.addCheckIn(new CheckIn((LocalDateTime.of(2019, 4, 11, 22, 0, 0))));
 
-        int count = registration.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
+        int count = checkIns.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
 
         assertEquals(1, count);
     }
 
     @Test
     public void participantCheckInAt9PM() {
-        CheckIns registration = new CheckIns();
+        CheckIns checkIns = new CheckIns();
         LocalDateTime datetime = LocalDateTime.of(2019, 4, 11, 21, 0, 0);
-        registration.addCheckIn(new CheckIn(datetime));
+        checkIns.addCheckIn(new CheckIn(datetime));
 
-        int count = registration.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
+        int count = checkIns.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
 
         assertEquals(1, count);
     }
 
     @Test
     public void participantCheckInAtMidnight() {
-        CheckIns registration = new CheckIns();
+        CheckIns checkIns = new CheckIns();
         LocalDateTime datetime = LocalDateTime.of(2019, 4, 12, 0, 0, 0);
-        registration.addCheckIn(new CheckIn(datetime));
+        checkIns.addCheckIn(new CheckIn(datetime));
 
-        int count = registration.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
+        int count = checkIns.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
 
         assertEquals(0, count);
     }
 
     @Test
     public void manyParticipantsCheckInAtDifferentTime() {
-        CheckIns registration = new CheckIns();
-        registration.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 9, 0, 0)));
-        registration.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 21, 0, 0)));
-        registration.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 21, 10, 0)));
-        registration.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 12, 0, 0, 0)));
-        registration.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 13, 0, 0)));
+        CheckIns checkIns = new CheckIns();
+        checkIns.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 9, 0, 0)));
+        checkIns.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 21, 0, 0)));
+        checkIns.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 21, 10, 0)));
+        checkIns.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 12, 0, 0, 0)));
+        checkIns.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 13, 0, 0)));
 
-        int count = registration.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
+        int count = checkIns.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
 
         assertEquals(2, count);
     }
