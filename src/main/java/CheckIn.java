@@ -13,7 +13,7 @@ class CheckIn {
         return this.checkInDate;
     }
 
-    public boolean isEligibleToColdMeal(LocalDateTime tomorrow, LocalDateTime limitTime) {
+    public boolean isEligibleToColdMeal(LocalDateTime limitTime, LocalDateTime tomorrow) {
         return (getCheckInDate().equals(limitTime) || getCheckInDate().isAfter(limitTime)) && getCheckInDate().isBefore(tomorrow);
     }
 }
