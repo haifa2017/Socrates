@@ -16,9 +16,10 @@ class CheckInManager {
     int countColdMeals(List<CheckIn> checkInList) {
         LocalDateTime tomorrow = this.limitTime.plus(1, ChronoUnit.DAYS).truncatedTo(ChronoUnit.DAYS);
         long coldMealsCount = checkInList.stream().filter(
-                checkIn -> (checkIn.getCheckInDate().equals(this.limitTime) || checkIn.getCheckInDate().isAfter(this.limitTime)) && checkIn.getCheckInDate().isBefore(tomorrow))
+                checkIn -> checkIn.isEligibleToColdMeal(tomorrow, this.limitTime))
                 .count();
 
         return (int) coldMealsCount;
     }
+
 }

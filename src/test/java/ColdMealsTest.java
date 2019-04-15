@@ -1,4 +1,3 @@
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
@@ -8,11 +7,6 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class ColdMealsTest {
-
-    @Test
-    public void test() {
-        Assert.assertTrue(true);
-    }
 
     @Test
     public void participantCheckInBefore9PM() {
