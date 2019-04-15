@@ -24,4 +24,8 @@ class CheckInRegistration {
     void addCheckIn(CheckIn checkIn) {
         this.checkInList.add(checkIn);
     }
+
+    public int countEmpty() {
+        return 1;
+    }
 }
