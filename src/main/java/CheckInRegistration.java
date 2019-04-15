@@ -4,18 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 class CheckInRegistration {
-    private LocalDateTime limitTime;
     private List<CheckIn> checkInList;
 
-    public CheckInRegistration(LocalDateTime limitTime) {
-        this.limitTime = limitTime;
+    public CheckInRegistration() {
         this.checkInList = new ArrayList<>();
     }
 
-    int countColdMeals() {
-        LocalDateTime tomorrow = this.limitTime.plus(1, ChronoUnit.DAYS).truncatedTo(ChronoUnit.DAYS);
+    int countColdMeals(LocalDateTime limitTime) {
+        LocalDateTime tomorrow = limitTime.plus(1, ChronoUnit.DAYS).truncatedTo(ChronoUnit.DAYS);
         long coldMealsCount = this.checkInList.stream().filter(
-                checkIn -> checkIn.isBetween(this.limitTime, tomorrow))
+                checkIn -> checkIn.isBetween(limitTime, tomorrow))
                 .count();
 
         return (int) coldMealsCount;
