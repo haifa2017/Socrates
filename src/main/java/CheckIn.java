@@ -8,7 +8,7 @@ class CheckIn {
         this.checkInDate = checkInDate;
     }
 
-    public boolean isBetween(LocalDateTime limitTime, LocalDateTime tomorrow) {
-        return (this.checkInDate.equals(limitTime) || this.checkInDate.isAfter(limitTime)) && this.checkInDate.isBefore(tomorrow);
+    public boolean isBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
+        return (this.checkInDate.equals(startDateTime) || this.checkInDate.isAfter(startDateTime)) && this.checkInDate.isBefore(endDateTime);
     }
 }
