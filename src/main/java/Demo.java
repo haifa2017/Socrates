@@ -17,8 +17,8 @@ class Demo {
         checkInList.add(new CheckIn(new Date(2019, 4, 11, 9, 0, 0)));
         System.out.println("Jean-François à 21h");
         checkInList.add(new CheckIn(new Date(2019, 4, 11, 21, 0, 0)));
-        System.out.println("Dorra arrive à 16h");
-        checkInList.add(new CheckIn(new Date(2019, 4, 11, 16, 0, 0)));
+        System.out.println("Dorra arrive à 00h");
+        checkInList.add(new CheckIn(new Date(2019, 4, 12, 0, 0, 0)));
 
         System.out.println("Il faut " + CheckInManager.countColdMeals(checkInList) + " repas froids.");
     }
