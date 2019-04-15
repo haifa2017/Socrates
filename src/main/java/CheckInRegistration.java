@@ -6,14 +6,14 @@ import java.util.List;
 class CheckInRegistration {
     private List<CheckIn> checkInList;
 
-    public CheckInRegistration() {
+    CheckInRegistration() {
         this.checkInList = new ArrayList<>();
     }
 
-    int countColdMeals(LocalDateTime limitTime) {
-        LocalDateTime tomorrow = limitTime.plus(1, ChronoUnit.DAYS).truncatedTo(ChronoUnit.DAYS);
+    int countColdMeals(LocalDateTime coldMealServingTime) {
+        LocalDateTime nextDay = coldMealServingTime.plus(1, ChronoUnit.DAYS).truncatedTo(ChronoUnit.DAYS);
         long coldMealsCount = this.checkInList.stream().filter(
-                checkIn -> checkIn.isBetween(limitTime, tomorrow))
+                checkIn -> checkIn.isBetween(coldMealServingTime, nextDay))
                 .count();
 
         return (int) coldMealsCount;
@@ -22,5 +22,4 @@ class CheckInRegistration {
     void addCheckIn(CheckIn checkIn) {
         this.checkInList.add(checkIn);
     }
-
 }

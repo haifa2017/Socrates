@@ -58,6 +58,7 @@ public class ColdMealsTest {
         registration.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 13, 0, 0)));
 
         int count = registration.countColdMeals(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
+
         assertEquals(2, count);
     }
 }
