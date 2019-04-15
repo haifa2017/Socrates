@@ -3,17 +3,17 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
-class CheckInRegistration {
-    private List<CheckIn> checkInList;
+class CheckIns {
+    private final List<CheckIn> checkInList;
 
-    CheckInRegistration() {
+    CheckIns() {
         this.checkInList = new ArrayList<>();
     }
 
-    int countColdMeals(LocalDateTime coldMealServingTime) {
-        LocalDateTime nextDay = coldMealServingTime.plus(1, ChronoUnit.DAYS).truncatedTo(ChronoUnit.DAYS);
+    int countCheckInsAfter(LocalDateTime time) {
+        LocalDateTime nextDay = time.plus(1, ChronoUnit.DAYS).truncatedTo(ChronoUnit.DAYS);
         long coldMealsCount = this.checkInList.stream()
-                .filter(checkIn -> checkIn.isBetween(coldMealServingTime, nextDay))
+                .filter(checkIn -> checkIn.isBetween(time, nextDay))
                 .count();
 
         return (int) coldMealsCount;

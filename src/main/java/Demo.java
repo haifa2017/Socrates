@@ -3,11 +3,11 @@ import java.util.Scanner;
 
 class Demo {
     public static void main(String[] args) {
-        CheckInRegistration registration = new CheckInRegistration();
+        CheckIns registration = new CheckIns();
 
         System.out.println("Cas avec 0 participants =>");
-        System.out.println("Il faut " + registration.countColdMeals(LocalDateTime.of(2019, 4, 11, 21, 0, 0)) + " repas froid.");
-        System.out.println("");
+        System.out.println("Il faut " + registration.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0)) + " repas froid.");
+        System.out.println();
         new Scanner(System.in).nextLine();
 
         System.out.println("Cas avec 5 participants => ");
@@ -24,6 +24,6 @@ class Demo {
         System.out.println("Guillaume arrive le lendemain à 03h");
         registration.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 12, 3, 0, 0)));
 
-        System.out.println("Il faut " + registration.countColdMeals(LocalDateTime.of(2019, 4, 11, 21, 0, 0)) + " repas froids.");
+        System.out.println("Il faut " + registration.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0)) + " repas froids.");
     }
 }
