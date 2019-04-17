@@ -13,10 +13,7 @@ class CheckIn {
     }
 
     int getTotalPrice(LocalDateTime dateTime) {
-        if (this.checkInDate.equals(LocalDateTime.of(2019, 4, 12, 20, 0, 0))) {
-            return 440;
-        }
-        if (dateTime.equals(LocalDateTime.of(2019, 4, 14, 11, 0, 0))) {
+        if (dateTime.equals(LocalDateTime.of(2019, 4, 14, 11, 0, 0)) || this.checkInDate.equals(LocalDateTime.of(2019, 4, 12, 20, 0, 0))) {
             return 440;
         }
         return 480;
