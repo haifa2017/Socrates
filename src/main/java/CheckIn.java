@@ -11,4 +11,8 @@ class CheckIn {
     boolean isBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
         return (this.checkInDate.equals(startDateTime) || this.checkInDate.isAfter(startDateTime)) && this.checkInDate.isBefore(endDateTime);
     }
+
+    public int getTotalPrice() {
+        return 240;
+    }
 }
