@@ -12,7 +12,7 @@ class CheckIn {
         return (this.checkInDate.equals(startDateTime) || this.checkInDate.isAfter(startDateTime)) && this.checkInDate.isBefore(endDateTime);
     }
 
-    public int getTotalPrice() {
+    int getTotalPrice() {
         return 240;
     }
 }
