@@ -12,13 +12,11 @@ class CheckIn {
         return (this.checkInDate.equals(startDateTime) || this.checkInDate.isAfter(startDateTime)) && this.checkInDate.isBefore(endDateTime);
     }
 
-    int getTotalPrice(LocalDateTime dateTime) {
-        if (this.checkInDate.equals(LocalDateTime.of(2019, 4, 11, 23, 0, 0)) && dateTime.equals(LocalDateTime.of(2019, 4, 14, 11, 0, 0))) {
-            return 400;
-        }
-        if (dateTime.equals(LocalDateTime.of(2019, 4, 14, 11, 0, 0)) || this.checkInDate.equals(LocalDateTime.of(2019, 4, 12, 20, 0, 0))) {
-            return 440;
-        }
-        return 480;
+    boolean isAfter(LocalDateTime dateTime) {
+        return this.checkInDate.isAfter(dateTime);
+    }
+
+    boolean isBefore(LocalDateTime dateTime) {
+        return (this.checkInDate.equals(dateTime) || this.checkInDate.isBefore(dateTime));
     }
 }
