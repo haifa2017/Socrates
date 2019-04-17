@@ -3,18 +3,20 @@ import java.time.LocalDateTime;
 class Registration {
 
     private CheckIn checkIn;
+    private CheckIn checkOut;
     private AccommodationType accommodationType;
 
-    Registration(CheckIn checkIn, AccommodationType accommodationType) {
+    Registration(CheckIn checkIn, CheckIn checkOut, AccommodationType accommodationType) {
         this.checkIn = checkIn;
+        this.checkOut = checkOut;
         this.accommodationType = accommodationType;
     }
 
-    int getTotalPrice(CheckIn endDate) {
-        if (this.checkIn.isAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0)) && endDate.isBefore(LocalDateTime.of(2019, 4, 14, 12, 0))) {
+    int getTotalPrice(LocalDateTime firstMealServingTimeLimit, LocalDateTime lastMealServingTime) {
+        if (this.checkIn.isAfter(firstMealServingTimeLimit) && this.checkOut.isBefore(lastMealServingTime)) {
             return this.accommodationType.getPrice() + 4 * 40; // 240 + (4*40)
         }
-        if (this.checkIn.isAfter(LocalDateTime.of(2019, 4, 11, 21, 0)) || endDate.isBefore(LocalDateTime.of(2019, 4, 14, 12, 0))) {
+        if (this.checkIn.isAfter(firstMealServingTimeLimit) || this.checkOut.isBefore(lastMealServingTime)) {
             return this.accommodationType.getPrice() + 5 * 40; // 240 + (5*40)
         }
         return this.accommodationType.getPrice() + 6 * 40; // 240 + 6*40
