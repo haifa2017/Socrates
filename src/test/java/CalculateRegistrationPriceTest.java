@@ -27,7 +27,7 @@ public class CalculateRegistrationPriceTest {
     }
 
     @Test
-    public void participantHaveNoAccommodationWithoutTwoMeals() {
+    public void participantHaveNoAccommodationWithoutFirstAndLastMeals() {
         CheckIn checkIn = new CheckIn(LocalDateTime.of(2019, 4, 11, 23, 0, 0));
 
         Assert.assertEquals(400, checkIn.getTotalPrice(LocalDateTime.of(2019, 4, 14, 11, 0, 0)));
