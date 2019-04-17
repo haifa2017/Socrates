@@ -22,7 +22,7 @@ public class CalculateRegistrationPriceTest {
         CheckIn endDate = new CheckIn(LocalDateTime.of(2019, 4, 14, 13, 0, 0));
         Registration registration = new Registration(checkIn, endDate, AccommodationType.NONE);
 
-        assertEquals(480, registration.getTotalPrice(this.firstMealServingTimeLimit, this.lastMealServingTime));
+        assertEquals(480, registration.getPriceForRoomAndMeals(this.firstMealServingTimeLimit, this.lastMealServingTime));
     }
 
     @Test
@@ -31,7 +31,7 @@ public class CalculateRegistrationPriceTest {
         CheckIn checkOut = new CheckIn(LocalDateTime.of(2019, 4, 14, 11, 0, 0));
 
         Registration registration = new Registration(checkIn, checkOut, AccommodationType.NONE);
-        assertEquals(440, registration.getTotalPrice(this.firstMealServingTimeLimit, this.lastMealServingTime));
+        assertEquals(440, registration.getPriceForRoomAndMeals(this.firstMealServingTimeLimit, this.lastMealServingTime));
     }
 
     @Test
@@ -40,7 +40,7 @@ public class CalculateRegistrationPriceTest {
         CheckIn checkOut = new CheckIn(LocalDateTime.of(2019, 4, 14, 15, 0, 0));
         Registration registration = new Registration(checkIn, checkOut, AccommodationType.NONE);
 
-        assertEquals(440, registration.getTotalPrice(this.firstMealServingTimeLimit, this.lastMealServingTime));
+        assertEquals(440, registration.getPriceForRoomAndMeals(this.firstMealServingTimeLimit, this.lastMealServingTime));
     }
 
     @Test
@@ -49,6 +49,6 @@ public class CalculateRegistrationPriceTest {
         CheckIn checkOut = new CheckIn(LocalDateTime.of(2019, 4, 14, 11, 0, 0));
         Registration registration = new Registration(checkIn, checkOut, AccommodationType.NONE);
 
-        assertEquals(400, registration.getTotalPrice(this.firstMealServingTimeLimit, this.lastMealServingTime));
+        assertEquals(400, registration.getPriceForRoomAndMeals(this.firstMealServingTimeLimit, this.lastMealServingTime));
     }
 }

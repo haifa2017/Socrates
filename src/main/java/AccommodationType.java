@@ -3,8 +3,8 @@ enum AccommodationType {
 
     private final int price;
 
-    AccommodationType(int i) {
-        this.price = i;
+    AccommodationType(int price) {
+        this.price = price;
     }
 
     public int getPrice() {

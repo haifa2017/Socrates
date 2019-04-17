@@ -12,7 +12,7 @@ class Registration {
         this.accommodationType = accommodationType;
     }
 
-    int getTotalPrice(LocalDateTime firstMealServingTimeLimit, LocalDateTime lastMealServingTime) {
+    int getPriceForRoomAndMeals(LocalDateTime firstMealServingTimeLimit, LocalDateTime lastMealServingTime) {
         if (this.checkIn.isAfter(firstMealServingTimeLimit) && this.checkOut.isBefore(lastMealServingTime)) {
             return this.accommodationType.getPrice() + 4 * 40; // 240 + (4*40)
         }
