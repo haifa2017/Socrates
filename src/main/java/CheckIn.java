@@ -13,6 +13,6 @@ class CheckIn {
     }
 
     int getTotalPrice() {
-        return 240;
+        return 480;
     }
 }

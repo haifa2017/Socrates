@@ -9,6 +9,6 @@ public class CalculateRegistrationPriceTest {
     public void participantHaveNoAccommodationWithCompletePrice() {
         CheckIn checkIn = new CheckIn(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
 
-        Assert.assertEquals(240, checkIn.getTotalPrice());
+        Assert.assertEquals(480, checkIn.getTotalPrice());
     }
 }
