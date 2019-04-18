@@ -14,8 +14,8 @@ class DateInterval {
     }
 
     public boolean overlaps(DateInterval interval) {
-        boolean overlapAtStart = interval.start.isBefore(start) && interval.end.isBefore(end) && interval.start.isBefore(end);
-        boolean overlapAtEnd = interval.start.isAfter(start) && interval.end.isAfter(end) && interval.start.isBefore(end);
+        boolean overlapAtStart = interval.start.isBefore(start) && interval.end.isBetween(start, end);
+        boolean overlapAtEnd = interval.start.isBetween(start, end) && interval.end.isAfter(end);
 
         return overlapAtStart || overlapAtEnd;
     }

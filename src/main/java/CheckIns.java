@@ -12,14 +12,14 @@ class CheckIns {
 
     int countCheckInsAfter(LocalDateTime time) {
         LocalDateTime nextDay = time.plus(1, ChronoUnit.DAYS).truncatedTo(ChronoUnit.DAYS);
-        long coldMealsCount = this.checkInList.stream()
-                .filter(checkIn -> checkIn.isBetween(time, nextDay))
+        long coldMealsCount = checkInList.stream()
+                .filter(checkIn -> checkIn.isBetween(new EventDate(time), new EventDate(nextDay)) || checkIn.isEqual(new EventDate(time)))
                 .count();
 
         return (int) coldMealsCount;
     }
 
     void addCheckIn(EventDate checkIn) {
-        this.checkInList.add(checkIn);
+        checkInList.add(checkIn);
     }
 }

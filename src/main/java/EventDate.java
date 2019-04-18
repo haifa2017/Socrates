@@ -8,8 +8,8 @@ class EventDate {
         this.date = date;
     }
 
-    boolean isBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
-        return (this.date.equals(startDateTime) || this.date.isAfter(startDateTime)) && this.date.isBefore(endDateTime);
+    boolean isBetween(EventDate startDateTime, EventDate endDateTime) {
+        return this.date.isAfter(startDateTime.date) && this.date.isBefore(endDateTime.date);
     }
 
     boolean isAfter(EventDate date) {
@@ -18,5 +18,9 @@ class EventDate {
 
     boolean isBefore(EventDate date) {
         return this.date.isBefore(date.date);
+    }
+
+    boolean isEqual(EventDate date) {
+        return this.date.isEqual(date.date);
     }
 }
