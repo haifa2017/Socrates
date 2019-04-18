@@ -12,12 +12,4 @@ class Registration {
         MealsPricing mealsPricing = new MealsPricing();
         return accommodationType.price + mealsPricing.calculateMealsPrice(mealServiceInterval, this);
     }
-
-    public EventDate arrival() {
-        return eventInterval.start;
-    }
-
-    public EventDate departure() {
-        return eventInterval.end;
-    }
 }
