@@ -1,17 +1,15 @@
-import java.time.LocalDateTime;
 
 class DateInterval {
 
-    final public EventDate start;
-    final public EventDate end;
-
-    public DateInterval(LocalDateTime start, LocalDateTime end) {
-        this.start = new EventDate(start);
-        this.end = new EventDate(end);
-    }
+    final EventDate start;
+    final EventDate end;
 
     public DateInterval(EventDate start, EventDate end) {
         this.start = start;
         this.end = end;
+    }
+
+    public boolean isContainedBy(DateInterval interval) {
+        return start.isAfter(interval.start) && end.isBefore(interval.end);
     }
 }

@@ -1,6 +1,6 @@
 class Registration {
 
-    final DateInterval eventInterval;
+    public final DateInterval eventInterval;
     private AccommodationType accommodationType;
 
     Registration(AccommodationType accommodationType, DateInterval eventInterval) {
