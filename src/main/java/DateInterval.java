@@ -2,8 +2,8 @@ import java.time.LocalDateTime;
 
 class DateInterval {
 
-    private LocalDateTime start;
-    private LocalDateTime end;
+    final public LocalDateTime start;
+    final public LocalDateTime end;
 
     public DateInterval(LocalDateTime start, LocalDateTime end) {
         this.start = start;

@@ -32,7 +32,7 @@ public class CalculateRegistrationPriceTest {
             mealCount--;
         }
         return accommodationType.price + mealCount * 40;*/
-        assertEquals(480, registration.CalculateTotalPrice(limits));
+        assertEquals(480, registration.calculateTotalPrice(limits));
     }
 
     @Test
@@ -51,7 +51,7 @@ public class CalculateRegistrationPriceTest {
             mealCount--;
         }
         return accommodationType.price + mealCount * 40;*/
-        assertEquals(440, registration.CalculateTotalPrice(limits));
+        assertEquals(440, registration.calculateTotalPrice(limits));
     }
 
     @Test
@@ -70,7 +70,7 @@ public class CalculateRegistrationPriceTest {
             mealCount--;
         }
         return accommodationType.price + mealCount * 40;*/
-        assertEquals(440, registration.CalculateTotalPrice(limits));
+        assertEquals(440, registration.calculateTotalPrice(limits));
     }
 
     @Test
@@ -89,7 +89,7 @@ public class CalculateRegistrationPriceTest {
             mealCount--;
         }
         return accommodationType.price + mealCount * 40;*/
-        assertEquals(400, registration.CalculateTotalPrice(limits));
+        assertEquals(400, registration.calculateTotalPrice(limits));
     }
 
     @Test
@@ -108,7 +108,7 @@ public class CalculateRegistrationPriceTest {
             mealCount--;
         }
         return accommodationType.price + mealCount * 40;*/
-        assertEquals(850, registration.CalculateTotalPrice(limits));
+        assertEquals(850, registration.calculateTotalPrice(limits));
     }
 
     @Test
@@ -127,7 +127,7 @@ public class CalculateRegistrationPriceTest {
             mealCount--;
         }
         return accommodationType.price + mealCount * 40;*/
-        assertEquals(810, registration.CalculateTotalPrice(limits));
+        assertEquals(810, registration.calculateTotalPrice(limits));
     }
 
     @Test
@@ -146,6 +146,6 @@ public class CalculateRegistrationPriceTest {
             mealCount--;
         }
         return accommodationType.price + mealCount * 40;*/
-        assertEquals(770, registration.CalculateTotalPrice(limits));
+        assertEquals(770, registration.calculateTotalPrice(limits));
     }
 }
