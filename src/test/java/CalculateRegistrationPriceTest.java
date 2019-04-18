@@ -51,4 +51,13 @@ public class CalculateRegistrationPriceTest {
 
         assertEquals(400, registration.getPriceForRoomAndMeals(this.firstMealServingTimeLimit, this.lastMealServingTime));
     }
+
+    @Test
+    public void participantHaveSingleRoomWithCompletePrice() {
+        CheckIn checkIn = new CheckIn(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
+        CheckIn checkOut = new CheckIn(LocalDateTime.of(2019, 4, 14, 13, 0, 0));
+
+        Registration registration = new Registration(checkIn, checkOut, AccommodationType.SINGLE);
+        assertEquals(850, registration.getPriceForRoomAndMeals(this.firstMealServingTimeLimit, this.lastMealServingTime));
+    }
 }

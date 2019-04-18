@@ -13,12 +13,13 @@ class Registration {
     }
 
     int getPriceForRoomAndMeals(LocalDateTime firstMealServingTimeLimit, LocalDateTime lastMealServingTime) {
-        if (this.checkIn.isAfter(firstMealServingTimeLimit) && this.checkOut.isBefore(lastMealServingTime)) {
-            return this.accommodationType.getPrice() + 4 * 40; // 240 + (4*40)
+        int mealCount = 6;
+        if (this.checkIn.isAfter(firstMealServingTimeLimit)) {
+            mealCount--;
         }
-        if (this.checkIn.isAfter(firstMealServingTimeLimit) || this.checkOut.isBefore(lastMealServingTime)) {
-            return this.accommodationType.getPrice() + 5 * 40; // 240 + (5*40)
+        if (this.checkOut.isBefore(lastMealServingTime)) {
+            mealCount--;
         }
-        return this.accommodationType.getPrice() + 6 * 40; // 240 + 6*40
+        return this.accommodationType.getPrice() + mealCount * 40;
     }
 }

@@ -1,5 +1,6 @@
 enum AccommodationType {
-    NONE(240);
+    NONE(240),
+    SINGLE(610);
 
     private final int price;
 
