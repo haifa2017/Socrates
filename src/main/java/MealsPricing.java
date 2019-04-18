@@ -16,13 +16,9 @@ class MealsPricing {
         if (registration.eventInterval.isContainedBy(mealServiceInterval)) {
             return 2;
         }
-        int numberNotTakenMeals = 0;
-        if (registration.arrival().isAfter(mealServiceInterval.start)) {
-            numberNotTakenMeals++;
+        if (registration.eventInterval.overlaps(mealServiceInterval)) {
+            return 1;
         }
-        if (registration.departure().isBefore(mealServiceInterval.end)) {
-            numberNotTakenMeals++;
-        }
-        return numberNotTakenMeals;
+        return 0;
     }
 }

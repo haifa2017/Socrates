@@ -17,6 +17,6 @@ class EventDate {
     }
 
     boolean isBefore(EventDate date) {
-        return (this.date.equals(date.date) || this.date.isBefore(date.date));
+        return this.date.isBefore(date.date);
     }
 }
