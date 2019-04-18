@@ -138,14 +138,6 @@ public class CalculateRegistrationPriceTest {
         Registration registration = new Registration(checkIn, checkOut, AccommodationType.SINGLE);
         DateInterval limits = new DateInterval(this.firstMealServingTimeLimit, this.lastMealServingTime);
 
-        /*int mealCount = 6;
-        if (this.checkIn.isAfter(firstMealServingTimeLimit)) {
-            mealCount--;
-        }
-        if (this.checkOut.isBefore(lastMealServingTime)) {
-            mealCount--;
-        }
-        return accommodationType.price + mealCount * 40;*/
         assertEquals(770, registration.calculateTotalPrice(limits));
     }
 }

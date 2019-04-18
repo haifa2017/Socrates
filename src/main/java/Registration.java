@@ -1,9 +1,7 @@
 class Registration {
 
-    public static final int MAX_MEAL_COUNT = 6;
-    public static final int MEAL_PRICE = 40;
-    private EventDate checkIn;
-    private EventDate checkOut;
+    final EventDate checkIn;
+    final EventDate checkOut;
     private AccommodationType accommodationType;
 
     Registration(EventDate checkIn, EventDate checkOut, AccommodationType accommodationType) {
@@ -13,26 +11,8 @@ class Registration {
     }
 
     int calculateTotalPrice(DateInterval mealServiceInterval) {
-        return accommodationType.price + calculateMealsPrice(mealServiceInterval);
+        MealsPricing mealsPricing = new MealsPricing();
+        return accommodationType.price + mealsPricing.calculateMealsPrice(mealServiceInterval, this);
     }
 
-    private int calculateMealsPrice(DateInterval mealServiceInterval) {
-        int mealCount = calculateMealCount(mealServiceInterval);
-        return mealCount * MEAL_PRICE;
-    }
-
-    private int calculateMealCount(DateInterval mealServiceInterval) {
-        return MAX_MEAL_COUNT - calculateNumberNotTakenMeals(mealServiceInterval);
-    }
-
-    private int calculateNumberNotTakenMeals(DateInterval mealServiceInterval) {
-        int numberNotTakenMeals = 0;
-        if (checkIn.isAfter(mealServiceInterval.start)) {
-            numberNotTakenMeals++;
-        }
-        if (checkOut.isBefore(mealServiceInterval.end)) {
-            numberNotTakenMeals++;
-        }
-        return numberNotTakenMeals;
-    }
 }
