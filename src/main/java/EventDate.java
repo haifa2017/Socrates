@@ -2,21 +2,21 @@ import java.time.LocalDateTime;
 
 class EventDate {
 
-    private final LocalDateTime checkInDate;
+    private final LocalDateTime date;
 
-    EventDate(LocalDateTime checkInDate) {
-        this.checkInDate = checkInDate;
+    EventDate(LocalDateTime date) {
+        this.date = date;
     }
 
     boolean isBetween(LocalDateTime startDateTime, LocalDateTime endDateTime) {
-        return (this.checkInDate.equals(startDateTime) || this.checkInDate.isAfter(startDateTime)) && this.checkInDate.isBefore(endDateTime);
+        return (this.date.equals(startDateTime) || this.date.isAfter(startDateTime)) && this.date.isBefore(endDateTime);
     }
 
-    boolean isAfter(LocalDateTime dateTime) {
-        return this.checkInDate.isAfter(dateTime);
+    boolean isAfter(EventDate date) {
+        return this.date.isAfter(date.date);
     }
 
-    boolean isBefore(LocalDateTime dateTime) {
-        return (this.checkInDate.equals(dateTime) || this.checkInDate.isBefore(dateTime));
+    boolean isBefore(EventDate date) {
+        return (this.date.equals(date.date) || this.date.isBefore(date.date));
     }
 }

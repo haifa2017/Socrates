@@ -14,10 +14,12 @@ class MealsPricing {
 
     private int calculateNumberNotTakenMeals(DateInterval mealServiceInterval, Registration registration) {
         int numberNotTakenMeals = 0;
-        if (registration.checkIn.isAfter(mealServiceInterval.start)) {
+        EventDate date1 = new EventDate(mealServiceInterval.start);
+        if (registration.checkIn.isAfter(date1)) {
             numberNotTakenMeals++;
         }
-        if (registration.checkOut.isBefore(mealServiceInterval.end)) {
+        EventDate date = new EventDate(mealServiceInterval.end);
+        if (registration.checkOut.isBefore(date)) {
             numberNotTakenMeals++;
         }
         return numberNotTakenMeals;
