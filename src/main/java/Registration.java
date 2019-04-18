@@ -1,7 +1,7 @@
 class Registration {
 
     public final DateInterval eventInterval;
-    private AccommodationType accommodationType;
+    private final AccommodationType accommodationType;
 
     Registration(AccommodationType accommodationType, DateInterval eventInterval) {
         this.accommodationType = accommodationType;

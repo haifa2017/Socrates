@@ -7,14 +7,12 @@ import static org.junit.Assert.assertEquals;
 
 public class CalculateRegistrationPriceTest {
 
-    private LocalDateTime firstMealServingTimeLimit;
-    private LocalDateTime lastMealServingTime;
     private DateInterval limits;
 
     @Before
     public void setupMealServingTime() {
-        firstMealServingTimeLimit = LocalDateTime.of(2019, 4, 11, 21, 0, 0);
-        lastMealServingTime = LocalDateTime.of(2019, 4, 14, 12, 0);
+        LocalDateTime firstMealServingTimeLimit = LocalDateTime.of(2019, 4, 11, 21, 0, 0);
+        LocalDateTime lastMealServingTime = LocalDateTime.of(2019, 4, 14, 12, 0);
         limits = new DateInterval(new EventDate(firstMealServingTimeLimit), new EventDate(lastMealServingTime));
     }
 
