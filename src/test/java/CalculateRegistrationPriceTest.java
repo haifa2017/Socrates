@@ -18,64 +18,134 @@ public class CalculateRegistrationPriceTest {
 
     @Test
     public void participantHaveNoAccommodationWithCompletePrice() {
-        CheckIn checkIn = new CheckIn(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
-        CheckIn endDate = new CheckIn(LocalDateTime.of(2019, 4, 14, 13, 0, 0));
+        EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
+        EventDate endDate = new EventDate(LocalDateTime.of(2019, 4, 14, 13, 0, 0));
         Registration registration = new Registration(checkIn, endDate, AccommodationType.NONE);
 
-        assertEquals(480, registration.getPriceForRoomAndMeals(this.firstMealServingTimeLimit, this.lastMealServingTime));
+        DateInterval limits = new DateInterval(this.firstMealServingTimeLimit, this.lastMealServingTime);
+
+        /*int mealCount = 6;
+        if (this.checkIn.isAfter(firstMealServingTimeLimit)) {
+            mealCount--;
+        }
+        if (this.checkOut.isBefore(lastMealServingTime)) {
+            mealCount--;
+        }
+        return accommodationType.price + mealCount * 40;*/
+        assertEquals(480, registration.CalculateTotalPrice(limits));
     }
 
     @Test
     public void participantHaveNoAccommodationWithoutLastMeal() {
-        CheckIn checkIn = new CheckIn(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
-        CheckIn checkOut = new CheckIn(LocalDateTime.of(2019, 4, 14, 11, 0, 0));
+        EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
+        EventDate checkOut = new EventDate(LocalDateTime.of(2019, 4, 14, 11, 0, 0));
 
         Registration registration = new Registration(checkIn, checkOut, AccommodationType.NONE);
-        assertEquals(440, registration.getPriceForRoomAndMeals(this.firstMealServingTimeLimit, this.lastMealServingTime));
+        DateInterval limits = new DateInterval(this.firstMealServingTimeLimit, this.lastMealServingTime);
+
+        /*int mealCount = 6;
+        if (this.checkIn.isAfter(firstMealServingTimeLimit)) {
+            mealCount--;
+        }
+        if (this.checkOut.isBefore(lastMealServingTime)) {
+            mealCount--;
+        }
+        return accommodationType.price + mealCount * 40;*/
+        assertEquals(440, registration.CalculateTotalPrice(limits));
     }
 
     @Test
     public void participantHaveNoAccommodationWithoutFirstMeal() {
-        CheckIn checkIn = new CheckIn(LocalDateTime.of(2019, 4, 12, 20, 0, 0));
-        CheckIn checkOut = new CheckIn(LocalDateTime.of(2019, 4, 14, 15, 0, 0));
+        EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 12, 20, 0, 0));
+        EventDate checkOut = new EventDate(LocalDateTime.of(2019, 4, 14, 15, 0, 0));
         Registration registration = new Registration(checkIn, checkOut, AccommodationType.NONE);
 
-        assertEquals(440, registration.getPriceForRoomAndMeals(this.firstMealServingTimeLimit, this.lastMealServingTime));
+        DateInterval limits = new DateInterval(this.firstMealServingTimeLimit, this.lastMealServingTime);
+
+        /*int mealCount = 6;
+        if (this.checkIn.isAfter(firstMealServingTimeLimit)) {
+            mealCount--;
+        }
+        if (this.checkOut.isBefore(lastMealServingTime)) {
+            mealCount--;
+        }
+        return accommodationType.price + mealCount * 40;*/
+        assertEquals(440, registration.CalculateTotalPrice(limits));
     }
 
     @Test
     public void participantHaveNoAccommodationWithoutFirstAndLastMeals() {
-        CheckIn checkIn = new CheckIn(LocalDateTime.of(2019, 4, 11, 23, 0, 0));
-        CheckIn checkOut = new CheckIn(LocalDateTime.of(2019, 4, 14, 11, 0, 0));
+        EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 23, 0, 0));
+        EventDate checkOut = new EventDate(LocalDateTime.of(2019, 4, 14, 11, 0, 0));
         Registration registration = new Registration(checkIn, checkOut, AccommodationType.NONE);
 
-        assertEquals(400, registration.getPriceForRoomAndMeals(this.firstMealServingTimeLimit, this.lastMealServingTime));
+        DateInterval limits = new DateInterval(this.firstMealServingTimeLimit, this.lastMealServingTime);
+
+        /*int mealCount = 6;
+        if (this.checkIn.isAfter(firstMealServingTimeLimit)) {
+            mealCount--;
+        }
+        if (this.checkOut.isBefore(lastMealServingTime)) {
+            mealCount--;
+        }
+        return accommodationType.price + mealCount * 40;*/
+        assertEquals(400, registration.CalculateTotalPrice(limits));
     }
 
     @Test
     public void participantHaveSingleRoomWithCompletePrice() {
-        CheckIn checkIn = new CheckIn(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
-        CheckIn checkOut = new CheckIn(LocalDateTime.of(2019, 4, 14, 13, 0, 0));
+        EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
+        EventDate checkOut = new EventDate(LocalDateTime.of(2019, 4, 14, 13, 0, 0));
 
         Registration registration = new Registration(checkIn, checkOut, AccommodationType.SINGLE);
-        assertEquals(850, registration.getPriceForRoomAndMeals(this.firstMealServingTimeLimit, this.lastMealServingTime));
+        DateInterval limits = new DateInterval(this.firstMealServingTimeLimit, this.lastMealServingTime);
+
+        /*int mealCount = 6;
+        if (this.checkIn.isAfter(firstMealServingTimeLimit)) {
+            mealCount--;
+        }
+        if (this.checkOut.isBefore(lastMealServingTime)) {
+            mealCount--;
+        }
+        return accommodationType.price + mealCount * 40;*/
+        assertEquals(850, registration.CalculateTotalPrice(limits));
     }
 
     @Test
     public void participantHaveSingleRoomWithoutOneMeal() {
-        CheckIn checkIn = new CheckIn(LocalDateTime.of(2019, 4, 11, 23, 0, 0));
-        CheckIn checkOut = new CheckIn(LocalDateTime.of(2019, 4, 14, 13, 0, 0));
+        EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 23, 0, 0));
+        EventDate checkOut = new EventDate(LocalDateTime.of(2019, 4, 14, 13, 0, 0));
 
         Registration registration = new Registration(checkIn, checkOut, AccommodationType.SINGLE);
-        assertEquals(810, registration.getPriceForRoomAndMeals(this.firstMealServingTimeLimit, this.lastMealServingTime));
+        DateInterval limits = new DateInterval(this.firstMealServingTimeLimit, this.lastMealServingTime);
+
+        /*int mealCount = 6;
+        if (this.checkIn.isAfter(firstMealServingTimeLimit)) {
+            mealCount--;
+        }
+        if (this.checkOut.isBefore(lastMealServingTime)) {
+            mealCount--;
+        }
+        return accommodationType.price + mealCount * 40;*/
+        assertEquals(810, registration.CalculateTotalPrice(limits));
     }
 
     @Test
     public void participantHaveSingleRoomWithoutTwoMeals() {
-        CheckIn checkIn = new CheckIn(LocalDateTime.of(2019, 4, 11, 23, 0, 0));
-        CheckIn checkOut = new CheckIn(LocalDateTime.of(2019, 4, 14, 11, 0, 0));
+        EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 23, 0, 0));
+        EventDate checkOut = new EventDate(LocalDateTime.of(2019, 4, 14, 11, 0, 0));
 
         Registration registration = new Registration(checkIn, checkOut, AccommodationType.SINGLE);
-        assertEquals(770, registration.getPriceForRoomAndMeals(this.firstMealServingTimeLimit, this.lastMealServingTime));
+        DateInterval limits = new DateInterval(this.firstMealServingTimeLimit, this.lastMealServingTime);
+
+        /*int mealCount = 6;
+        if (this.checkIn.isAfter(firstMealServingTimeLimit)) {
+            mealCount--;
+        }
+        if (this.checkOut.isBefore(lastMealServingTime)) {
+            mealCount--;
+        }
+        return accommodationType.price + mealCount * 40;*/
+        assertEquals(770, registration.CalculateTotalPrice(limits));
     }
 }

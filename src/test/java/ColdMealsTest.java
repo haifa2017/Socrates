@@ -9,7 +9,7 @@ public class ColdMealsTest {
     @Test
     public void participantCheckInBefore9PM() {
         CheckIns checkIns = new CheckIns();
-        checkIns.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 16, 0, 0)));
+        checkIns.addCheckIn(new EventDate(LocalDateTime.of(2019, 4, 11, 16, 0, 0)));
 
         int count = checkIns.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
 
@@ -19,7 +19,7 @@ public class ColdMealsTest {
     @Test
     public void participantCheckInAfter9PM() {
         CheckIns checkIns = new CheckIns();
-        checkIns.addCheckIn(new CheckIn((LocalDateTime.of(2019, 4, 11, 22, 0, 0))));
+        checkIns.addCheckIn(new EventDate((LocalDateTime.of(2019, 4, 11, 22, 0, 0))));
 
         int count = checkIns.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
 
@@ -30,7 +30,7 @@ public class ColdMealsTest {
     public void participantCheckInAt9PM() {
         CheckIns checkIns = new CheckIns();
         LocalDateTime datetime = LocalDateTime.of(2019, 4, 11, 21, 0, 0);
-        checkIns.addCheckIn(new CheckIn(datetime));
+        checkIns.addCheckIn(new EventDate(datetime));
 
         int count = checkIns.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
 
@@ -41,7 +41,7 @@ public class ColdMealsTest {
     public void participantCheckInAtMidnight() {
         CheckIns checkIns = new CheckIns();
         LocalDateTime datetime = LocalDateTime.of(2019, 4, 12, 0, 0, 0);
-        checkIns.addCheckIn(new CheckIn(datetime));
+        checkIns.addCheckIn(new EventDate(datetime));
 
         int count = checkIns.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
 
@@ -51,11 +51,11 @@ public class ColdMealsTest {
     @Test
     public void manyParticipantsCheckInAtDifferentTime() {
         CheckIns checkIns = new CheckIns();
-        checkIns.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 9, 0, 0)));
-        checkIns.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 21, 0, 0)));
-        checkIns.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 21, 10, 0)));
-        checkIns.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 12, 0, 0, 0)));
-        checkIns.addCheckIn(new CheckIn(LocalDateTime.of(2019, 4, 11, 13, 0, 0)));
+        checkIns.addCheckIn(new EventDate(LocalDateTime.of(2019, 4, 11, 9, 0, 0)));
+        checkIns.addCheckIn(new EventDate(LocalDateTime.of(2019, 4, 11, 21, 0, 0)));
+        checkIns.addCheckIn(new EventDate(LocalDateTime.of(2019, 4, 11, 21, 10, 0)));
+        checkIns.addCheckIn(new EventDate(LocalDateTime.of(2019, 4, 12, 0, 0, 0)));
+        checkIns.addCheckIn(new EventDate(LocalDateTime.of(2019, 4, 11, 13, 0, 0)));
 
         int count = checkIns.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
 

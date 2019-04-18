@@ -1,10 +1,10 @@
 import java.time.LocalDateTime;
 
-class CheckIn {
+class EventDate {
 
     private final LocalDateTime checkInDate;
 
-    CheckIn(LocalDateTime checkInDate) {
+    EventDate(LocalDateTime checkInDate) {
         this.checkInDate = checkInDate;
     }
 

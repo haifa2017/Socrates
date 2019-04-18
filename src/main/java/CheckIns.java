@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 class CheckIns {
-    private final List<CheckIn> checkInList;
+    private final List<EventDate> checkInList;
 
     CheckIns() {
         this.checkInList = new ArrayList<>();
@@ -19,7 +19,7 @@ class CheckIns {
         return (int) coldMealsCount;
     }
 
-    void addCheckIn(CheckIn checkIn) {
+    void addCheckIn(EventDate checkIn) {
         this.checkInList.add(checkIn);
     }
 }

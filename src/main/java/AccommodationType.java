@@ -2,7 +2,7 @@ enum AccommodationType {
     NONE(240),
     SINGLE(610);
 
-    private final int price;
+    public final int price;
 
     AccommodationType(int price) {
         this.price = price;

@@ -1,25 +1,23 @@
-import java.time.LocalDateTime;
-
 class Registration {
 
-    private CheckIn checkIn;
-    private CheckIn checkOut;
+    private EventDate checkIn;
+    private EventDate checkOut;
     private AccommodationType accommodationType;
 
-    Registration(CheckIn checkIn, CheckIn checkOut, AccommodationType accommodationType) {
+    Registration(EventDate checkIn, EventDate checkOut, AccommodationType accommodationType) {
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.accommodationType = accommodationType;
     }
 
-    int getPriceForRoomAndMeals(LocalDateTime firstMealServingTimeLimit, LocalDateTime lastMealServingTime) {
+    int CalculateTotalPrice(DateInterval interval) {
         int mealCount = 6;
-        if (this.checkIn.isAfter(firstMealServingTimeLimit)) {
+        if (interval.contains(checkIn)) {
             mealCount--;
         }
-        if (this.checkOut.isBefore(lastMealServingTime)) {
+        if (interval.contains(checkOut)) {
             mealCount--;
         }
-        return this.accommodationType.getPrice() + mealCount * 40;
+        return accommodationType.price + mealCount * 40;
     }
 }
