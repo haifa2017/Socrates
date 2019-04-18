@@ -3,7 +3,7 @@ class MealsPricing {
     private static final int MAX_MEAL_COUNT = 6;
     private static final int MEAL_PRICE = 40;
 
-    public int calculateMealsPrice(DateInterval mealServiceInterval, Registration registration) {
+    int calculateMealsPrice(DateInterval mealServiceInterval, Registration registration) {
         int mealCount = calculateMealCount(mealServiceInterval, registration);
         return mealCount * MEAL_PRICE;
     }
