@@ -123,7 +123,6 @@ public class CalculateRegistrationPriceTest {
         Registration registration = new Registration(checkIn, checkOut, AccommodationType.TRIPLE);
         DateInterval limits = new DateInterval(firstMealServingTimeLimit, lastMealServingTime);
 
-
         assertEquals(650, registration.calculateTotalPrice(limits));
     }
 }
