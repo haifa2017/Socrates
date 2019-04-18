@@ -9,4 +9,9 @@ class DateInterval {
         this.start = new EventDate(start);
         this.end = new EventDate(end);
     }
+
+    public DateInterval(EventDate start, EventDate end) {
+        this.start = start;
+        this.end = end;
+    }
 }

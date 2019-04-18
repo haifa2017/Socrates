@@ -1,13 +1,11 @@
 class Registration {
 
-    final EventDate checkIn;
-    final EventDate checkOut;
+    final DateInterval eventInterval;
     private AccommodationType accommodationType;
 
-    Registration(EventDate checkIn, EventDate checkOut, AccommodationType accommodationType) {
-        this.checkIn = checkIn;
-        this.checkOut = checkOut;
+    Registration(AccommodationType accommodationType, DateInterval eventInterval) {
         this.accommodationType = accommodationType;
+        this.eventInterval = eventInterval;
     }
 
     int calculateTotalPrice(DateInterval mealServiceInterval) {
@@ -15,4 +13,11 @@ class Registration {
         return accommodationType.price + mealsPricing.calculateMealsPrice(mealServiceInterval, this);
     }
 
+    public EventDate arrival() {
+        return eventInterval.start;
+    }
+
+    public EventDate departure() {
+        return eventInterval.end;
+    }
 }

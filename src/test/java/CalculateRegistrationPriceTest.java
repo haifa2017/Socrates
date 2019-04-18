@@ -22,7 +22,7 @@ public class CalculateRegistrationPriceTest {
     public void noAccommodationWithAllMeals() {
         EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
         EventDate endDate = new EventDate(LocalDateTime.of(2019, 4, 14, 13, 0, 0));
-        Registration registration = new Registration(checkIn, endDate, AccommodationType.NONE);
+        Registration registration = new Registration(AccommodationType.NONE, new DateInterval(checkIn, endDate));
 
         assertEquals(480, registration.calculateTotalPrice(limits));
     }
@@ -31,7 +31,7 @@ public class CalculateRegistrationPriceTest {
     public void noAccommodationWithoutOneMeal() {
         EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 12, 20, 0, 0));
         EventDate checkOut = new EventDate(LocalDateTime.of(2019, 4, 14, 15, 0, 0));
-        Registration registration = new Registration(checkIn, checkOut, AccommodationType.NONE);
+        Registration registration = new Registration(AccommodationType.NONE, new DateInterval(checkIn, checkOut));
 
         assertEquals(440, registration.calculateTotalPrice(limits));
     }
@@ -40,7 +40,7 @@ public class CalculateRegistrationPriceTest {
     public void noAccommodationWithoutTwoMeals() {
         EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 23, 0, 0));
         EventDate checkOut = new EventDate(LocalDateTime.of(2019, 4, 14, 11, 0, 0));
-        Registration registration = new Registration(checkIn, checkOut, AccommodationType.NONE);
+        Registration registration = new Registration(AccommodationType.NONE, new DateInterval(checkIn, checkOut));
 
         assertEquals(400, registration.calculateTotalPrice(limits));
     }
@@ -49,7 +49,7 @@ public class CalculateRegistrationPriceTest {
     public void singleRoomWithAllMeals() {
         EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
         EventDate checkOut = new EventDate(LocalDateTime.of(2019, 4, 14, 13, 0, 0));
-        Registration registration = new Registration(checkIn, checkOut, AccommodationType.SINGLE);
+        Registration registration = new Registration(AccommodationType.SINGLE, new DateInterval(checkIn, checkOut));
 
         assertEquals(850, registration.calculateTotalPrice(limits));
     }
@@ -58,7 +58,7 @@ public class CalculateRegistrationPriceTest {
     public void singleRoomWithoutOneMeal() {
         EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 23, 0, 0));
         EventDate checkOut = new EventDate(LocalDateTime.of(2019, 4, 14, 13, 0, 0));
-        Registration registration = new Registration(checkIn, checkOut, AccommodationType.SINGLE);
+        Registration registration = new Registration(AccommodationType.SINGLE, new DateInterval(checkIn, checkOut));
 
         assertEquals(810, registration.calculateTotalPrice(limits));
     }
@@ -67,7 +67,7 @@ public class CalculateRegistrationPriceTest {
     public void singleRoomWithoutTwoMeals() {
         EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 23, 0, 0));
         EventDate checkOut = new EventDate(LocalDateTime.of(2019, 4, 14, 11, 0, 0));
-        Registration registration = new Registration(checkIn, checkOut, AccommodationType.SINGLE);
+        Registration registration = new Registration(AccommodationType.SINGLE, new DateInterval(checkIn, checkOut));
 
         assertEquals(770, registration.calculateTotalPrice(limits));
     }
@@ -76,7 +76,7 @@ public class CalculateRegistrationPriceTest {
     public void doubleRoomWithAllMeals() {
         EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 20, 0, 0));
         EventDate checkOut = new EventDate((LocalDateTime.of(2019, 4, 14, 15, 0, 0)));
-        Registration registration = new Registration(checkIn, checkOut, AccommodationType.DOUBLE);
+        Registration registration = new Registration(AccommodationType.DOUBLE, new DateInterval(checkIn, checkOut));
 
         assertEquals(750, registration.calculateTotalPrice(limits));
     }
@@ -85,7 +85,7 @@ public class CalculateRegistrationPriceTest {
     public void doubleRoomWithoutOneMeals() {
         EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 12, 10, 0, 0));
         EventDate checkOut = new EventDate((LocalDateTime.of(2019, 4, 14, 15, 0, 0)));
-        Registration registration = new Registration(checkIn, checkOut, AccommodationType.DOUBLE);
+        Registration registration = new Registration(AccommodationType.DOUBLE, new DateInterval(checkIn, checkOut));
 
         assertEquals(710, registration.calculateTotalPrice(limits));
     }
@@ -94,7 +94,7 @@ public class CalculateRegistrationPriceTest {
     public void doubleRoomWithoutTwoMeals() {
         EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 12, 10, 0, 0));
         EventDate checkOut = new EventDate((LocalDateTime.of(2019, 4, 13, 23, 0, 0)));
-        Registration registration = new Registration(checkIn, checkOut, AccommodationType.DOUBLE);
+        Registration registration = new Registration(AccommodationType.DOUBLE, new DateInterval(checkIn, checkOut));
 
         assertEquals(670, registration.calculateTotalPrice(limits));
     }
@@ -103,7 +103,7 @@ public class CalculateRegistrationPriceTest {
     public void tripleRoomWithAllMeals() {
         EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 18, 0, 0));
         EventDate checkOut = new EventDate((LocalDateTime.of(2019, 4, 14, 23, 0, 0)));
-        Registration registration = new Registration(checkIn, checkOut, AccommodationType.TRIPLE);
+        Registration registration = new Registration(AccommodationType.TRIPLE, new DateInterval(checkIn, checkOut));
 
         assertEquals(650, registration.calculateTotalPrice(limits));
     }
@@ -112,7 +112,7 @@ public class CalculateRegistrationPriceTest {
     public void tripleRoomWithoutOneMeal() {
         EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 11, 18, 0, 0));
         EventDate checkOut = new EventDate((LocalDateTime.of(2019, 4, 14, 5, 0, 0)));
-        Registration registration = new Registration(checkIn, checkOut, AccommodationType.TRIPLE);
+        Registration registration = new Registration(AccommodationType.TRIPLE, new DateInterval(checkIn, checkOut));
 
         assertEquals(610, registration.calculateTotalPrice(limits));
     }
@@ -121,7 +121,7 @@ public class CalculateRegistrationPriceTest {
     public void tripleRoomWithoutTwoMeals() {
         EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 12, 18, 0, 0));
         EventDate checkOut = new EventDate((LocalDateTime.of(2019, 4, 13, 23, 0, 0)));
-        Registration registration = new Registration(checkIn, checkOut, AccommodationType.TRIPLE);
+        Registration registration = new Registration(AccommodationType.TRIPLE, new DateInterval(checkIn, checkOut));
 
         assertEquals(570, registration.calculateTotalPrice(limits));
     }
