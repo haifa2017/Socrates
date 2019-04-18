@@ -117,4 +117,13 @@ public class CalculateRegistrationPriceTest {
         assertEquals(610, registration.calculateTotalPrice(limits));
     }
 
+    @Test
+    public void tripleRoomWithoutTwoMeals() {
+        EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 12, 18, 0, 0));
+        EventDate checkOut = new EventDate((LocalDateTime.of(2019, 4, 13, 23, 0, 0)));
+        Registration registration = new Registration(checkIn, checkOut, AccommodationType.TRIPLE);
+
+        assertEquals(570, registration.calculateTotalPrice(limits));
+    }
+
 }
