@@ -1,6 +1,7 @@
 enum AccommodationType {
     NONE(240),
-    SINGLE(610);
+    SINGLE(610),
+    DOUBLE(510);
 
     public final int price;
 
