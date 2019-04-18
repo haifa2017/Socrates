@@ -105,4 +105,14 @@ public class CalculateRegistrationPriceTest {
 
         assertEquals(710, registration.calculateTotalPrice(limits));
     }
+
+    @Test
+    public void participantHaveDoubleRoomWithoutTwoMeals() {
+        EventDate checkIn = new EventDate(LocalDateTime.of(2019, 4, 12, 10, 0, 0));
+        EventDate checkOut = new EventDate((LocalDateTime.of(2019, 4, 13, 23, 0, 0)));
+        Registration registration = new Registration(checkIn, checkOut, AccommodationType.DOUBLE);
+        DateInterval limits = new DateInterval(firstMealServingTimeLimit, lastMealServingTime);
+
+        assertEquals(670, registration.calculateTotalPrice(limits));
+    }
 }
