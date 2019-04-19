@@ -5,7 +5,7 @@ public class DateInterval {
     private final EventDate start;
     private final EventDate end;
 
-    public DateInterval(EventDate start, EventDate end) {
+    DateInterval(EventDate start, EventDate end) {
         this.start = start;
         this.end = end;
     }

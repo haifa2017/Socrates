@@ -8,7 +8,7 @@ class MealsPricing {
     private static final int MEAL_PRICE = 40;
     private final DateInterval mealServiceInterval;
 
-    public MealsPricing(DateInterval mealServiceInterval) {
+    MealsPricing(DateInterval mealServiceInterval) {
         this.mealServiceInterval = mealServiceInterval;
     }
 
