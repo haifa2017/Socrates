@@ -1,3 +1,7 @@
+package SocratesFr.PriceCalculator;
+
+import SocratesFr.DateInterval;
+
 public class RegistrationBuilder {
     private AccommodationType accommodationType;
     private DateInterval eventInterval;

@@ -1,19 +1,20 @@
+package SocratesFr;
 
-class DateInterval {
+public class DateInterval {
 
     private final EventDate start;
     private final EventDate end;
 
-    DateInterval(EventDate start, EventDate end) {
+    public DateInterval(EventDate start, EventDate end) {
         this.start = start;
         this.end = end;
     }
 
-    boolean isContainedBy(DateInterval interval) {
+    public boolean isContainedBy(DateInterval interval) {
         return start.isAfter(interval.start) && end.isBefore(interval.end);
     }
 
-    boolean overlaps(DateInterval interval) {
+    public boolean overlaps(DateInterval interval) {
         boolean overlapAtStart = interval.start.isBefore(start) && interval.end.isBetween(start, end);
         boolean overlapAtEnd = interval.start.isBetween(start, end) && interval.end.isAfter(end);
 

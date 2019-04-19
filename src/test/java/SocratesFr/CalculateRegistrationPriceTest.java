@@ -1,3 +1,8 @@
+package SocratesFr;
+
+import SocratesFr.PriceCalculator.AccommodationType;
+import SocratesFr.PriceCalculator.Registration;
+import SocratesFr.PriceCalculator.RegistrationBuilder;
 import org.junit.Before;
 import org.junit.Test;
 

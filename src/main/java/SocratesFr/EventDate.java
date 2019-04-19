@@ -1,26 +1,28 @@
+package SocratesFr;
+
 import java.time.LocalDateTime;
 
-class EventDate {
+public class EventDate {
 
     private final LocalDateTime date;
 
-    EventDate(LocalDateTime date) {
+    public EventDate(LocalDateTime date) {
         this.date = date;
     }
 
-    boolean isBetween(EventDate startDateTime, EventDate endDateTime) {
+    public boolean isBetween(EventDate startDateTime, EventDate endDateTime) {
         return this.date.isAfter(startDateTime.date) && this.date.isBefore(endDateTime.date);
     }
 
-    boolean isAfter(EventDate date) {
+    public boolean isAfter(EventDate date) {
         return this.date.isAfter(date.date);
     }
 
-    boolean isBefore(EventDate date) {
+    public boolean isBefore(EventDate date) {
         return this.date.isBefore(date.date);
     }
 
-    boolean isEqual(EventDate date) {
+    public boolean isEqual(EventDate date) {
         return this.date.isEqual(date.date);
     }
 }

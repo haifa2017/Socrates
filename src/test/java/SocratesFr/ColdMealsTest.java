@@ -1,3 +1,6 @@
+package SocratesFr;
+
+import SocratesFr.ColdMeals.CheckIns;
 import org.junit.Test;
 
 import java.time.LocalDateTime;

@@ -1,3 +1,6 @@
+import SocratesFr.ColdMeals.CheckIns;
+import SocratesFr.EventDate;
+
 import java.time.LocalDateTime;
 import java.util.Scanner;
 

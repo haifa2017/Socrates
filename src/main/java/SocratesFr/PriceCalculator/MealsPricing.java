@@ -1,3 +1,7 @@
+package SocratesFr.PriceCalculator;
+
+import SocratesFr.DateInterval;
+
 class MealsPricing {
 
     private static final int MAX_MEAL_COUNT = 6;
@@ -12,7 +16,6 @@ class MealsPricing {
         int mealCount = calculateMealCount(attendance);
         return mealCount * MEAL_PRICE;
     }
-
 
     private int calculateMealCount(DateInterval attendance) {
         return MAX_MEAL_COUNT - calculateNumberNotTakenMeals(attendance);

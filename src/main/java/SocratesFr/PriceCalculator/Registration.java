@@ -1,4 +1,8 @@
-class Registration {
+package SocratesFr.PriceCalculator;
+
+import SocratesFr.DateInterval;
+
+public class Registration {
 
     private final DateInterval attendance;
     private final AccommodationType accommodationType;
@@ -8,7 +12,7 @@ class Registration {
         this.attendance = attendance;
     }
 
-    int calculateTotalPrice(DateInterval mealServiceInterval) {
+    public int calculateTotalPrice(DateInterval mealServiceInterval) {
         MealsPricing mealsPricing = new MealsPricing(mealServiceInterval);
         return accommodationType.price + mealsPricing.calculate(attendance);
     }

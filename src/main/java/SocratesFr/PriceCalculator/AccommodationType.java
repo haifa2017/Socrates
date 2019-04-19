@@ -1,4 +1,6 @@
-enum AccommodationType {
+package SocratesFr.PriceCalculator;
+
+public enum AccommodationType {
     NONE(240),
     SINGLE(610),
     DOUBLE(510),
