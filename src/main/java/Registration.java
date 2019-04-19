@@ -1,15 +1,15 @@
 class Registration {
 
-    final DateInterval eventInterval;
+    final DateInterval attendance;
     private final AccommodationType accommodationType;
 
-    Registration(AccommodationType accommodationType, DateInterval eventInterval) {
+    Registration(AccommodationType accommodationType, DateInterval attendance) {
         this.accommodationType = accommodationType;
-        this.eventInterval = eventInterval;
+        this.attendance = attendance;
     }
 
     int calculateTotalPrice(DateInterval mealServiceInterval) {
-        MealsPricing mealsPricing = new MealsPricing();
-        return accommodationType.price + mealsPricing.calculateMealsPrice(mealServiceInterval, this);
+        MealsPricing mealsPricing = new MealsPricing(mealServiceInterval);
+        return accommodationType.price + mealsPricing.calculate(this);
     }
 }

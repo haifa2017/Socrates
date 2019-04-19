@@ -55,7 +55,6 @@ public class ColdMealsTest {
         checkIns.addCheckIn(new EventDate(LocalDateTime.of(2019, 4, 11, 21, 0, 0)));
         checkIns.addCheckIn(new EventDate(LocalDateTime.of(2019, 4, 11, 21, 10, 0)));
         checkIns.addCheckIn(new EventDate(LocalDateTime.of(2019, 4, 12, 0, 0, 0)));
-        checkIns.addCheckIn(new EventDate(LocalDateTime.of(2019, 4, 11, 13, 0, 0)));
 
         int count = checkIns.countCheckInsAfter(LocalDateTime.of(2019, 4, 11, 21, 0, 0));
 
