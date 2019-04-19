@@ -10,6 +10,6 @@ class Registration {
 
     int calculateTotalPrice(DateInterval mealServiceInterval) {
         MealsPricing mealsPricing = new MealsPricing(mealServiceInterval);
-        return accommodationType.price + mealsPricing.calculate(this);
+        return accommodationType.price + mealsPricing.calculate(attendance);
     }
 }

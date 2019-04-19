@@ -8,20 +8,20 @@ class MealsPricing {
         this.mealServiceInterval = mealServiceInterval;
     }
 
-    int calculate(Registration registration) {
-        int mealCount = calculateMealCount(registration);
+    int calculate(DateInterval attendance) {
+        int mealCount = calculateMealCount(attendance);
         return mealCount * MEAL_PRICE;
     }
 
-    private int calculateMealCount(Registration registration) {
-        return MAX_MEAL_COUNT - calculateNumberNotTakenMeals(registration);
+    private int calculateMealCount(DateInterval attendance) {
+        return MAX_MEAL_COUNT - calculateNumberNotTakenMeals(attendance);
     }
 
-    private int calculateNumberNotTakenMeals(Registration registration) {
-        if (registration.attendance.isContainedBy(mealServiceInterval)) {
+    private int calculateNumberNotTakenMeals(DateInterval attendance) {
+        if (attendance.isContainedBy(mealServiceInterval)) {
             return 2;
         }
-        if (registration.attendance.overlaps(mealServiceInterval)) {
+        if (attendance.overlaps(mealServiceInterval)) {
             return 1;
         }
         return 0;
