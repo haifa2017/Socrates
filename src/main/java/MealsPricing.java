@@ -2,7 +2,7 @@ class MealsPricing {
 
     private static final int MAX_MEAL_COUNT = 6;
     private static final int MEAL_PRICE = 40;
-    DateInterval mealServiceInterval;
+    private final DateInterval mealServiceInterval;
 
     public MealsPricing(DateInterval mealServiceInterval) {
         this.mealServiceInterval = mealServiceInterval;
