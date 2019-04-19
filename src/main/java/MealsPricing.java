@@ -13,6 +13,7 @@ class MealsPricing {
         return mealCount * MEAL_PRICE;
     }
 
+
     private int calculateMealCount(DateInterval attendance) {
         return MAX_MEAL_COUNT - calculateNumberNotTakenMeals(attendance);
     }
