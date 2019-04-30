@@ -2,6 +2,8 @@ package SocratesFr.Covers;
 
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+
 import static SocratesFr.Covers.Diet.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -71,5 +73,19 @@ public class MealChoicesTest {
                 .build();
 
         assertThat(oneOmnivoreAndZeroVegan).isEqualTo(oneOmnivore);
+    }
+
+    @Test
+    public void meal_choices_for_a_specific_meal_time() {
+        MealTime lunch = MealTime.of(LocalDateTime.of(2019, 1, 1, 12, 1));
+        MealTime dinner = MealTime.of(LocalDateTime.of(2019, 1, 1, 19, 1));
+        MealChoices choices = new MealChoices(
+                MealChoice.of(VEGAN, lunch),
+                MealChoice.of(VEGAN, dinner));
+
+        Covers covers = choices.asCovers(lunch);
+
+        Covers coversExpected = Covers.builder().add(VEGAN, 1).build();
+        assertThat(covers).isEqualTo(coversExpected);
     }
 }

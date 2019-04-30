@@ -24,6 +24,21 @@ class MealChoices {
         return builder.build();
     }
 
+    Covers asCovers(MealTime mealTime) {
+        CoversBuilder builder = Covers.builder();
+        for (Diet diet : values()) {
+            builder.add(diet, countMealsWithDietFor(diet, mealTime));
+        }
+        return builder.build();
+    }
+
+    private long countMealsWithDietFor(Diet diet, MealTime mealTime) {
+        return mealChoices.stream()
+                .filter(mealChoice -> mealChoice.isFor(mealTime))
+                .filter(mealChoice -> mealChoice.is(diet))
+                .count();
+    }
+
     private long countMealsWithDiet(Diet diet) {
         return mealChoices.stream()
                 .filter(mealChoice -> mealChoice.is(diet))

@@ -4,13 +4,28 @@ import java.util.Objects;
 
 class MealChoice {
     private Diet diet;
+    private final MealTime mealTime;
 
     private MealChoice(Diet diet) {
         this.diet = diet;
+        mealTime = null;
+    }
+
+    private MealChoice(Diet diet, MealTime mealTime) {
+        this.diet = diet;
+        this.mealTime = mealTime;
     }
 
     static MealChoice of(Diet diet) {
         return new MealChoice(diet);
+    }
+
+    static MealChoice of(Diet diet, MealTime mealTime) {
+        return new MealChoice(diet, mealTime);
+    }
+
+    boolean isFor(MealTime mealTime) {
+        return Objects.equals(mealTime, this.mealTime);
     }
 
     @Override
