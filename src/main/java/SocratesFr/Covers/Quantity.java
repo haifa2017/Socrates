@@ -2,13 +2,14 @@ package SocratesFr.Covers;
 
 class Quantity {
     private long quantity;
+    private static final int QUANTITY_MIN = 0;
 
     private Quantity(long quantity) {
         this.quantity = quantity;
     }
 
     static Quantity of(long quantity) {
-        if (quantity < 0) {
+        if (quantity < QUANTITY_MIN) {
             throw new IllegalArgumentException("quantity can not be negative");
         }
         return new Quantity(quantity);

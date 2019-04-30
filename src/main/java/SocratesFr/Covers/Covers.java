@@ -7,6 +7,7 @@ import java.util.Objects;
 class Covers {
 
     private Map<Diet, Quantity> dietQuantity;
+    private static final int QUANTITY_MIN = 1;
 
     private Covers(Map<Diet, Quantity> dietQuantity) {
         this.dietQuantity = new HashMap<>(dietQuantity);
@@ -42,7 +43,7 @@ class Covers {
         private Map<Diet, Quantity> dietQuantity = new HashMap<>();
 
         CoversBuilder add(Diet diet, long quantity) {
-            if (quantity < 1) {
+            if (quantity < QUANTITY_MIN) {
                 return this;
             }
             this.dietQuantity.put(diet, Quantity.of(quantity));

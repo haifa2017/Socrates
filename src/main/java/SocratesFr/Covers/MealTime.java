@@ -1,6 +1,7 @@
 package SocratesFr.Covers;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 class MealTime {
 
@@ -26,7 +27,7 @@ class MealTime {
 
         MealTime mealTime = (MealTime) o;
 
-        return dateTime != null ? dateTime.equals(mealTime.dateTime) : mealTime.dateTime == null;
+        return Objects.equals(dateTime, mealTime.dateTime);
     }
 
     @Override
