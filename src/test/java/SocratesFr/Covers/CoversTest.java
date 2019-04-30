@@ -61,4 +61,15 @@ public class CoversTest {
         Covers OneOmnivore = Covers.builder().add(OMNIVORE, 1).build();
         assertThat(covers).isEqualTo(OneOmnivore);
     }
+
+    @Test
+    public void one_omnivore_and_zero_vegan_is_equal_to_one_omnivore_cover() {
+        Covers oneOmnivore = Covers.builder().add(OMNIVORE, 1).build();
+        Covers oneOmnivoreAndZeroVegan = Covers.builder()
+                .add(OMNIVORE, 1)
+                .add(VEGAN, 0)
+                .build();
+
+        assertThat(oneOmnivoreAndZeroVegan).isEqualTo(oneOmnivore);
+    }
 }
