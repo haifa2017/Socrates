@@ -2,9 +2,7 @@ package SocratesFr.Covers;
 
 import SocratesFr.Covers.Covers.CoversBuilder;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 import static SocratesFr.Covers.Diet.values;
 
@@ -22,6 +20,17 @@ class MealChoices {
             builder.add(diet, countMealsWithDiet(diet));
         }
         return builder.build();
+    }
+
+    Map<MealTime, Covers> asCoversByMealTime() {
+        Map<MealTime, Covers> map = new HashMap<>();
+
+        mealChoices.stream()
+                .map(MealChoice::getMealTime)
+                .distinct()
+                .forEach(mealTime -> map.put(mealTime, asCovers(mealTime)));
+
+        return map;
     }
 
     Covers asCovers(MealTime mealTime) {

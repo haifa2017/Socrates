@@ -11,6 +11,10 @@ class MealChoice {
         this.mealTime = mealTime;
     }
 
+    MealTime getMealTime() {
+        return mealTime;
+    }
+
     static MealChoice of(Diet diet, MealTime mealTime) {
         return new MealChoice(diet, mealTime);
     }

@@ -3,6 +3,8 @@ package SocratesFr.Covers;
 import org.junit.Test;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 import static SocratesFr.Covers.Diet.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -88,5 +90,24 @@ public class MealChoicesTest {
 
         Covers coversExpected = Covers.builder().add(VEGAN, 1).build();
         assertThat(covers).isEqualTo(coversExpected);
+    }
+
+    @Test
+    public void get_covers_for_each_meals_time() {
+        MealChoices mealChoices = new MealChoices(
+                MealChoice.of(OMNIVORE, LUNCH),
+                MealChoice.of(OMNIVORE, LUNCH),
+                MealChoice.of(VEGAN, DINNER),
+                MealChoice.of(VEGAN, DINNER),
+                MealChoice.of(VEGAN, DINNER)
+        );
+
+        Map<MealTime, Covers> coversByMealTime = mealChoices.asCoversByMealTime();
+
+        Map<MealTime, Covers> coversByMealTimeExpected = new HashMap<MealTime, Covers>() {{
+            put(LUNCH, Covers.builder().add(OMNIVORE, 2).build());
+            put(DINNER, Covers.builder().add(VEGAN, 3).build());
+        }};
+        assertThat(coversByMealTime).isEqualTo(coversByMealTimeExpected);
     }
 }
