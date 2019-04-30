@@ -4,9 +4,15 @@ import java.util.Objects;
 
 class Covers {
     private final int numberVegetarianMeals;
+    private int vegan;
 
     Covers(int numberVegetarianMeals) {
         this.numberVegetarianMeals = numberVegetarianMeals;
+    }
+
+    Covers(int vegetarian, int vegan) {
+        numberVegetarianMeals = vegetarian;
+        this.vegan = vegan;
     }
 
     @Override
