@@ -1,4 +1,4 @@
-package SocratesFr;
+package SocratesFr.Covers;
 
 import java.util.Objects;
 
