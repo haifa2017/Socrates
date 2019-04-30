@@ -15,4 +15,12 @@ public class CoversTest {
         Assertions.assertThat(covers).isEqualTo(coverWithOneVegetarianMeal);
     }
 
+    @Test
+    public void two_vegetarian_meals_return_two_vegetarian_meals() {
+        Meals meals = new Meals(Meal.VEGETARIAN, Meal.VEGETARIAN);
+        Covers covers = meals.asCovers();
+
+        Covers coverWithTwoVegetarianMeals = new Covers(2);
+        Assertions.assertThat(covers).isEqualTo(coverWithTwoVegetarianMeals);
+    }
 }
