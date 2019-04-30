@@ -13,7 +13,7 @@ public class CoversTest {
 
         Covers covers = meals.asCovers();
 
-        Covers coverWithOneVegetarianMeal = Covers.builder().vegetarian(1).build();
+        Covers coverWithOneVegetarianMeal = Covers.builder().add(VEGETARIAN, 1).build();
         assertThat(covers).isEqualTo(coverWithOneVegetarianMeal);
     }
 
@@ -23,7 +23,7 @@ public class CoversTest {
 
         Covers covers = meals.asCovers();
 
-        Covers coverWithTwoVegetarianMeals = Covers.builder().vegetarian(2).build();
+        Covers coverWithTwoVegetarianMeals = Covers.builder().add(VEGETARIAN, 2).build();
         assertThat(covers).isEqualTo(coverWithTwoVegetarianMeals);
     }
 
@@ -35,7 +35,10 @@ public class CoversTest {
 
         Covers covers = meals.asCovers();
 
-        Covers coversWithOneVeganAndOneVegetarian = Covers.builder().vegetarian(1).vegan(1).build();
+        Covers coversWithOneVeganAndOneVegetarian = Covers.builder()
+                .add(VEGETARIAN, 1)
+                .add(VEGAN, 1)
+                .build();
         assertThat(covers).isEqualTo(coversWithOneVeganAndOneVegetarian);
     }
 
@@ -45,7 +48,7 @@ public class CoversTest {
 
         Covers covers = meals.asCovers();
 
-        Covers OnePescatarianCover = Covers.builder().pescatarian(1).build();
+        Covers OnePescatarianCover = Covers.builder().add(PESCATARIAN, 1).build();
         assertThat(covers).isEqualTo(OnePescatarianCover);
     }
 }

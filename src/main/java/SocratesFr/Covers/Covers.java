@@ -1,14 +1,15 @@
 package SocratesFr.Covers;
 
-class Covers {
-    private long vegetarian;
-    private long vegan;
-    private long pescatarian;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
-    private Covers(long vegetarian, long vegan, long pescatarian) {
-        this.vegetarian = vegetarian;
-        this.vegan = vegan;
-        this.pescatarian = pescatarian;
+class Covers {
+
+    private Map<Diet, Quantity> dietQuantity;
+
+    private Covers(Map<Diet, Quantity> dietQuantity) {
+        this.dietQuantity = new HashMap<>(dietQuantity);
     }
 
     static CoversBuilder builder() {
@@ -18,9 +19,7 @@ class Covers {
     @Override
     public String toString() {
         return "Covers{" +
-                "\nvegetarian=" + vegetarian +
-                ", \nvegan=" + vegan +
-                ", \npescatarian=" + pescatarian +
+                "\ndietQuantity=" + dietQuantity +
                 '}';
     }
 
@@ -31,41 +30,27 @@ class Covers {
 
         Covers covers = (Covers) o;
 
-        if (vegetarian != covers.vegetarian) return false;
-        if (vegan != covers.vegan) return false;
-        return pescatarian == covers.pescatarian;
+        return Objects.equals(dietQuantity, covers.dietQuantity);
     }
 
     @Override
     public int hashCode() {
-        int result = (int) (vegetarian ^ (vegetarian >>> 32));
-        result = 31 * result + (int) (vegan ^ (vegan >>> 32));
-        result = 31 * result + (int) (pescatarian ^ (pescatarian >>> 32));
-        return result;
+        return dietQuantity != null ? dietQuantity.hashCode() : 0;
     }
 
     static class CoversBuilder {
-        private long vegetarian;
-        private long vegan;
-        private long pescatarian;
+        private Map<Diet, Quantity> dietQuantity = new HashMap<>();
 
-        CoversBuilder vegetarian(long vegetarian) {
-            this.vegetarian = vegetarian;
-            return this;
-        }
-
-        CoversBuilder vegan(long vegan) {
-            this.vegan = vegan;
-            return this;
-        }
-
-        CoversBuilder pescatarian(long pescatarian) {
-            this.pescatarian = pescatarian;
+        CoversBuilder add(Diet diet, long quantity) {
+            if (quantity < 1) {
+                return this;
+            }
+            this.dietQuantity.put(diet, Quantity.of(quantity));
             return this;
         }
 
         Covers build() {
-            return new Covers(vegetarian, vegan, pescatarian);
+            return new Covers(this.dietQuantity);
         }
     }
 }
