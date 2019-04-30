@@ -1,5 +1,7 @@
 package SocratesFr.Covers;
 
 public enum Diet {
-    VEGAN, VEGETARIAN
+    VEGAN,
+    PESCATARIAN,
+    VEGETARIAN
 }

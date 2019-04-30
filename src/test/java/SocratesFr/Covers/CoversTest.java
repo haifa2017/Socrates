@@ -2,8 +2,7 @@ package SocratesFr.Covers;
 
 import org.junit.Test;
 
-import static SocratesFr.Covers.Diet.VEGAN;
-import static SocratesFr.Covers.Diet.VEGETARIAN;
+import static SocratesFr.Covers.Diet.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CoversTest {
@@ -38,5 +37,15 @@ public class CoversTest {
 
         Covers coversWithOneVeganAndOneVegetarian = Covers.builder().vegetarian(1).vegan(1).build();
         assertThat(covers).isEqualTo(coversWithOneVeganAndOneVegetarian);
+    }
+
+    @Test
+    public void one_pescatarian_meal_return_one_pescatarian_cover() {
+        Meals meals = new Meals(Meal.of(PESCATARIAN));
+
+        Covers covers = meals.asCovers();
+
+        Covers OnePescatarianCover = Covers.builder().pescatarian(1).build();
+        assertThat(covers).isEqualTo(OnePescatarianCover);
     }
 }

@@ -3,8 +3,7 @@ package SocratesFr.Covers;
 import java.util.Arrays;
 import java.util.List;
 
-import static SocratesFr.Covers.Diet.VEGAN;
-import static SocratesFr.Covers.Diet.VEGETARIAN;
+import static SocratesFr.Covers.Diet.*;
 
 class Meals {
 
@@ -18,6 +17,7 @@ class Meals {
         return Covers.builder()
                 .vegetarian(countMealsWithDiet(VEGETARIAN))
                 .vegan(countMealsWithDiet(VEGAN))
+                .pescatarian(countMealsWithDiet(PESCATARIAN))
                 .build();
     }
 
