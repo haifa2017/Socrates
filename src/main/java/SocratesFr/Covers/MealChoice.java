@@ -2,15 +2,15 @@ package SocratesFr.Covers;
 
 import java.util.Objects;
 
-class Meal {
+class MealChoice {
     private Diet diet;
 
-    private Meal(Diet diet) {
+    private MealChoice(Diet diet) {
         this.diet = diet;
     }
 
-    static Meal of(Diet diet) {
-        return new Meal(diet);
+    static MealChoice of(Diet diet) {
+        return new MealChoice(diet);
     }
 
     @Override
@@ -18,9 +18,9 @@ class Meal {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Meal meal = (Meal) o;
+        MealChoice mealChoice = (MealChoice) o;
 
-        return diet == meal.diet;
+        return diet == mealChoice.diet;
     }
 
     @Override
@@ -30,7 +30,7 @@ class Meal {
 
     @Override
     public String toString() {
-        return "Meal{" +
+        return "MealChoice{" +
                 "\ndiet=" + diet +
                 '}';
     }

@@ -8,12 +8,12 @@ import java.util.Objects;
 
 import static SocratesFr.Covers.Diet.values;
 
-class Meals {
+class MealChoices {
 
-    private List<Meal> meals;
+    private List<MealChoice> mealChoices;
 
-    Meals(Meal... meals) {
-        this.meals = Arrays.asList(meals);
+    MealChoices(MealChoice... mealChoices) {
+        this.mealChoices = Arrays.asList(mealChoices);
     }
 
     Covers asCovers() {
@@ -25,8 +25,8 @@ class Meals {
     }
 
     private long countMealsWithDiet(Diet diet) {
-        return meals.stream()
-                .filter(meal -> meal.is(diet))
+        return mealChoices.stream()
+                .filter(mealChoice -> mealChoice.is(diet))
                 .count();
     }
 
@@ -35,13 +35,13 @@ class Meals {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Meals meals1 = (Meals) o;
+        MealChoices mealChoices1 = (MealChoices) o;
 
-        return Objects.equals(meals, meals1.meals);
+        return Objects.equals(mealChoices, mealChoices1.mealChoices);
     }
 
     @Override
     public int hashCode() {
-        return meals != null ? meals.hashCode() : 0;
+        return mealChoices != null ? mealChoices.hashCode() : 0;
     }
 }

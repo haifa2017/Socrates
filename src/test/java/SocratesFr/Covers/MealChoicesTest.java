@@ -5,13 +5,13 @@ import org.junit.Test;
 import static SocratesFr.Covers.Diet.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class CoversTest {
+public class MealChoicesTest {
 
     @Test
     public void one_vegetarian_meal_return_one_vegetarian_cover() {
-        Meals meals = new Meals(Meal.of(VEGETARIAN));
+        MealChoices mealChoices = new MealChoices(MealChoice.of(VEGETARIAN));
 
-        Covers covers = meals.asCovers();
+        Covers covers = mealChoices.asCovers();
 
         Covers coverWithOneVegetarianMeal = Covers.builder().add(VEGETARIAN, 1).build();
         assertThat(covers).isEqualTo(coverWithOneVegetarianMeal);
@@ -19,9 +19,9 @@ public class CoversTest {
 
     @Test
     public void two_vegetarian_meals_return_two_vegetarian_meals() {
-        Meals meals = new Meals(Meal.of(VEGETARIAN), Meal.of(VEGETARIAN));
+        MealChoices mealChoices = new MealChoices(MealChoice.of(VEGETARIAN), MealChoice.of(VEGETARIAN));
 
-        Covers covers = meals.asCovers();
+        Covers covers = mealChoices.asCovers();
 
         Covers coverWithTwoVegetarianMeals = Covers.builder().add(VEGETARIAN, 2).build();
         assertThat(covers).isEqualTo(coverWithTwoVegetarianMeals);
@@ -29,11 +29,11 @@ public class CoversTest {
 
     @Test
     public void one_vegetarian_and_one_vegan_meals_return_one_vegan_and_one_vegetarian_covers() {
-        Meals meals = new Meals(
-                Meal.of(VEGETARIAN),
-                Meal.of(VEGAN));
+        MealChoices mealChoices = new MealChoices(
+                MealChoice.of(VEGETARIAN),
+                MealChoice.of(VEGAN));
 
-        Covers covers = meals.asCovers();
+        Covers covers = mealChoices.asCovers();
 
         Covers coversWithOneVeganAndOneVegetarian = Covers.builder()
                 .add(VEGETARIAN, 1)
@@ -44,9 +44,9 @@ public class CoversTest {
 
     @Test
     public void one_pescatarian_meal_return_one_pescatarian_cover() {
-        Meals meals = new Meals(Meal.of(PESCATARIAN));
+        MealChoices mealChoices = new MealChoices(MealChoice.of(PESCATARIAN));
 
-        Covers covers = meals.asCovers();
+        Covers covers = mealChoices.asCovers();
 
         Covers OnePescatarianCover = Covers.builder().add(PESCATARIAN, 1).build();
         assertThat(covers).isEqualTo(OnePescatarianCover);
@@ -54,9 +54,9 @@ public class CoversTest {
 
     @Test
     public void one_omnivore_meal_return_one_omnivore_cover() {
-        Meals meals = new Meals(Meal.of(OMNIVORE));
+        MealChoices mealChoices = new MealChoices(MealChoice.of(OMNIVORE));
 
-        Covers covers = meals.asCovers();
+        Covers covers = mealChoices.asCovers();
 
         Covers OneOmnivore = Covers.builder().add(OMNIVORE, 1).build();
         assertThat(covers).isEqualTo(OneOmnivore);
