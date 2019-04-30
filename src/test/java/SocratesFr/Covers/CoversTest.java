@@ -51,4 +51,14 @@ public class CoversTest {
         Covers OnePescatarianCover = Covers.builder().add(PESCATARIAN, 1).build();
         assertThat(covers).isEqualTo(OnePescatarianCover);
     }
+
+    @Test
+    public void one_omnivore_meal_return_one_omnivore_cover() {
+        Meals meals = new Meals(Meal.of(OMNIVORE));
+
+        Covers covers = meals.asCovers();
+
+        Covers OneOmnivore = Covers.builder().add(OMNIVORE, 1).build();
+        assertThat(covers).isEqualTo(OneOmnivore);
+    }
 }
