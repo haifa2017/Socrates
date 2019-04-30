@@ -3,15 +3,27 @@ package SocratesFr.Covers;
 import java.util.Arrays;
 import java.util.List;
 
+import static SocratesFr.Covers.Diet.VEGAN;
+import static SocratesFr.Covers.Diet.VEGETARIAN;
+
 class Meals {
 
-    private List<Meal> vegetarians;
+    private List<Meal> meals;
 
     Meals(Meal... meals) {
-        this.vegetarians = Arrays.asList(meals);
+        this.meals = Arrays.asList(meals);
     }
 
     Covers asCovers() {
-        return new Covers(vegetarians.size());
+        return Covers.builder()
+                .vegetarian(countMealsWithDiet(VEGETARIAN))
+                .vegan(countMealsWithDiet(VEGAN))
+                .build();
+    }
+
+    private long countMealsWithDiet(Diet diet) {
+        return meals.stream()
+                .filter(meal -> meal.is(diet))
+                .count();
     }
 }

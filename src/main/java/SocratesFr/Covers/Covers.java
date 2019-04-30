@@ -3,16 +3,16 @@ package SocratesFr.Covers;
 import java.util.Objects;
 
 class Covers {
-    private final int numberVegetarianMeals;
-    private int vegan;
+    private long vegetarian;
+    private long vegan;
 
-    Covers(int numberVegetarianMeals) {
-        this.numberVegetarianMeals = numberVegetarianMeals;
+    private Covers(long vegetarian, long vegan) {
+        this.vegetarian = vegetarian;
+        this.vegan = vegan;
     }
 
-    Covers(int vegetarian, int vegan) {
-        numberVegetarianMeals = vegetarian;
-        this.vegan = vegan;
+    static CoversBuilder builder() {
+        return new CoversBuilder();
     }
 
     @Override
@@ -20,11 +20,30 @@ class Covers {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Covers covers = (Covers) o;
-        return numberVegetarianMeals == covers.numberVegetarianMeals;
+        return vegetarian == covers.vegetarian;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(numberVegetarianMeals);
+        return Objects.hash(vegetarian);
+    }
+
+    static class CoversBuilder {
+        private long vegetarian;
+        private long vegan;
+
+        CoversBuilder vegetarian(long vegetarian) {
+            this.vegetarian = vegetarian;
+            return this;
+        }
+
+        CoversBuilder vegan(long vegan) {
+            this.vegan = vegan;
+            return this;
+        }
+
+        Covers build() {
+            return new Covers(vegetarian, vegan);
+        }
     }
 }

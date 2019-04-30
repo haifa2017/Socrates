@@ -1,5 +1,7 @@
 package SocratesFr.Covers;
 
+import java.util.Objects;
+
 class Meal {
     private Diet diet;
 
@@ -31,5 +33,9 @@ class Meal {
         return "Meal{" +
                 "\ndiet=" + diet +
                 '}';
+    }
+
+    boolean is(Diet diet) {
+        return Objects.equals(this.diet, diet);
     }
 }
